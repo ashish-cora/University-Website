@@ -14,7 +14,9 @@
   position: relative;
  
 }
-
+.text-box p {
+  color: white;
+}
 
 nav{
   display: flex;
@@ -23,7 +25,7 @@ nav{
   align-items: flex-start;
 }
 nav img{
-  width: 80 px;
+  width: 200px;
 }
 
 .nav-links{
@@ -34,7 +36,7 @@ nav img{
 .nav-links ul li{
   list-style: none;
   display: inline-block;
-  padding: 8 px 12 px;
+  padding: 8px 12px;
   position: relative;
 }
 
@@ -102,7 +104,7 @@ nav .fa{
 {
   .text-box h1{
   
-    font-size: 32 px;
+    font-size: 32px;
     
   }
   .nav-links ul li {
@@ -121,20 +123,40 @@ nav .fa{
    height: 100vh;
    width: 35vw;
    top: 0;
-   right: 0;
+   right: -200px;
    text-align: left;
    z-index: 1;
+   transition: 0.8s;
   }
   nav .fa{
     display: block;
-    margin: 10 px;
-    font-size: 22 px;
+    margin: 10px;
+    font-size: 22px;
     cursor: pointer;
   };
 
-  .nav-links ul{
-    padding: 100px;
+  /* .nav-links ul{
+    padding: 30px;
   }
- 
+  */
   
+}
+
+/* ---course------ */
+.course{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+}
+h1{
+  font-size: 35px;
+  font-weight: bold;
+}
+p{
+  color: black;
+  font-size: medium;
+  font-weight: thin;
+  line-height: 22px;
+  padding: 10pxxx;
 }
