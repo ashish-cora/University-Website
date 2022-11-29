@@ -139,6 +139,10 @@ nav .fa{
     padding: 30px;
   }
   */
+
+
+
+  
   
 }
 
@@ -158,5 +162,250 @@ p{
   font-size: medium;
   font-weight: thin;
   line-height: 22px;
-  padding: 10pxxx;
+  padding: 10px;
+}
+
+.row{
+
+  display: flex;
+  text-align: justify;
+  justify-content: space-between;
+
+}
+
+.course-col h3 {
+  text-align: center;
+  font-weight: bolder;
+  margin: 10px 0;
+}
+
+
+.course-col{
+  flex-basis: 31%;
+  background-color:rgba(181, 234, 247, 0.57);
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 12px 0px;
+  box-sizing: border-box;
+  transition: 0.4s;
+}
+
+.course-col:hover{
+  box-shadow:0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+@media(max-width:700px){
+  .row{
+    flex-direction: column;
+  }
+
+}
+
+
+/* campus */
+.campus{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 50px;
+
+}
+
+.campus-col{
+  flex-basis: 32%;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.campus-col img{
+  width: 100%;
+  display: block;   
+}
+
+.layer{
+  text-align: center;  
+  height: 100%;
+  width: 100%;
+  position: absolute; 
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+
+}
+
+.layer:hover{
+  background: rgba(225,0,0,0.4);
+}
+
+.layer h3{
+  width: 100%;
+  color: #fff;
+  font-weight: 600;
+  font-size: 25px;
+  bottom: 0;
+  left: 50%;
+  transform:translateX(-50%);
+  position: absolute;
+  opacity: 0;
+  transition: 0.3s;
+
+}
+
+.layer:hover h3{
+  opacity: 1;
+  bottom: 50%;
+}
+
+.facilities{
+  margin-top: 90px;
+  text-align: center;
+}
+.facilitiesDiv{
+  
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.facilitiesDiv img{
+  width: 100%;
+}
+
+.imgDiv{
+  width: 30%;
+  border-radius: 10px;
+  margin-bottom: 2%;
+}
+
+.imgDiv:hover{
+  box-shadow: 0 0 12px 8px rgba(0, 0, 0, 0.3);
+}
+.imgDiv h4{
+  font-weight: 900px;
+}
+
+@media (max-width: 700px) {
+  .facilitiesDiv{
+  flex-direction: column;
+  }
+
+  .imgDiv{
+    width: 100%;
+    margin: 15px 0 15px 0;
+  }
+  
+}
+
+
+/* --------------------------testimonials-------------------------------- */
+.testimonials{
+  margin-top: 15%;
+  text-align: center;
+
+}
+
+.bairaKoDiv{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 5% 0 5% 0;
+  position: relative;
+  
+  
+}
+
+.duiOtaDiv{
+  margin: 14px;
+  width: 35%;
+  height: 40%;
+  display: flex;
+  background-color: #ffe9e9;
+  border-radius: 20px;
+ }
+/* 
+ #class1{
+  position: absolute;
+  margin-right: 25%;
+ }
+ #class2{
+  position: absolute;
+  margin-left: 25%;
+ } */
+.imgKoDiv img{
+margin: 10px 10px 0 15px;
+width: 40px;
+height: 50px;
+border-radius: 50%;
+}
+
+.textKoDiv{
+  text-align: justify;
+  margin-bottom: 10px;
+}
+.textKoDiv h3{
+  text-align: right;
+  margin-right: 39px;
+}
+@media(max-width: 700px) {
+  .bairaKoDiv{
+    width: 100%;
+    margin: 5% 0 5% 0;
+    flex-direction:column ;
+    }
+
+    .duiOtaDiv{
+      margin: 14px;
+      width: 87%;
+      height: 40%;
+      
+      background-color: #ffe9e9;
+      border-radius: 20px;
+      
+     }
+    
+}
+
+.testimonials .fa{
+  color: rgb(240, 28, 28);
+}
+
+.cta{
+  margin: 100px auto;
+  width: 80%;
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../../assets/img/banner2.jpg);
+  /* background-position: center; */
+  background-size: cover;
+  border-radius: 15px;
+  text-align: center;
+  padding:100px 0;
+}
+
+.cta h1{
+  color:#fff;
+  padding: 0;
+}
+
+.cta .hero-btn{
+  margin-top: 40px;
+}
+
+
+@media(max-width:700px){
+  .cta h1{
+    font-size:large;
+    font-weight: 600;
+
+  }
+} 
+
+.footer{
+  margin:80px auto;
+  text-align: center;
+}
+
+.footer .fa{
+ 
+  padding: 20px 5px;
+  color: #ff6666;
 }
