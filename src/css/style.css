@@ -475,7 +475,6 @@ form p a {
   color: red;
 }
 #hiddenButton {
-  /* flex-basis: 48%; */
   position: absolute;
   height: 40px;
   /* visibility: hidden; */

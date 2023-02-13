@@ -209,44 +209,40 @@
     <section class="loginPage">
       <div class="form-box">
         <h1 id="title">Sign Up</h1>
-        <form
-          class="form"
-          id="login"
-          action="/myaction.php"
-          name="myForm"
-          onsubmit="return validateForm()"
-          method="post"
-        >
+        <form class="form" id="login" name="myForm" method="post">
           <div class="input-group">
             <div class="input-field" id="nameField">
               <i class="fa-solid fa-user"></i>
-              <input type="text" placeholder="Name" name="fname`" /><span
-                class="formerror"
-                ><b></b
-              ></span>
+              <input
+                type="text"
+                placeholder="Name"
+                name="fname"
+                id="naamField"
+              /><span class="formerror"><b></b></span>
             </div>
             <div class="input-field">
               <i class="fa-solid fa-envelope"></i>
-              <input type="email" placeholder="Email" name="femail" /><span
-                class="formerror"
-                ><b></b
-              ></span>
+              <input
+                type="email"
+                placeholder="Email"
+                name="femail"
+                id="eemail"
+              /><span class="formerror"><b></b></span>
             </div>
             <div class="input-field">
               <i class="fa-solid fa-lock"></i>
-              <input type="password" placeholder="Password" name="fpass" /><span
-                class="formerror"
-                ><b></b
-              ></span>
+              <input
+                type="password"
+                placeholder="Password"
+                name="fpass"
+                id="eepass"
+              /><span class="formerror"><b></b></span>
             </div>
             <p>Lost password? <a href="#">click here.</a></p>
           </div>
           <div class="btn-field">
-            <button type="button" id="signupBtn">Sign up</button>
-            <button type="button" class="disable" id="signinBtn">
-              Sign in
-            </button>
-            <input type="submit" id="hiddenButton" />
+            <button id="signupBtn">Sign up</button>
+            <button class="disable" id="signinBtn">Sign in</button>
           </div>
         </form>
       </div>
@@ -264,29 +260,41 @@
       let signupBtn = document.getElementById("signupBtn");
       let signinBtn = document.getElementById("signinBtn");
       let title = document.getElementById("title");
-      let nameField = document.getElementById("nameField");
-
-      signinBtn.onclick = function () {
-        nameField.style.maxHeight = "0";
-        title.innerHTML = "Sign In";
-        signupBtn.classList.add("disable");
-        signinBtn.classList.remove("disable");
+      let nameField = document.getElementById("naamField").value;
+      let selectedTab = "signup";
+      let emailField = document.getElementById("eemail").value;
+      let password = document.getElementById("eepass").value;
+      signinBtn.onclick = function (e) {
+        e.preventDefault();
+        if (selectedTab === "signup") {
+          selectedTab = "signin";
+          nameField.style.maxHeight = "0";
+          title.innerHTML = "Sign In";
+          signupBtn.classList.add("disable");
+          signinBtn.classList.remove("disable");
+        } else {
+        }
       };
-      signupBtn.onclick = function () {
-        nameField.style.maxHeight = "60px";
-        title.innerHTML = "Sign Up";
-        signupBtn.classList.remove("disable");
-        signinBtn.classList.add("disable");
+      signupBtn.onclick = function (e) {
+        e.preventDefault();
+        if (selectedTab === "signin") {
+          selectedTab = "signup";
+          nameField.style.maxHeight = "60px";
+          title.innerHTML = "Sign Up";
+          signupBtn.classList.remove("disable");
+          signinBtn.classList.add("disable");
+        } else {
+          if (
+            naamField.length > 0 &&
+            emailField.includes("@") &&
+            password.length > 0
+          ) {
+            console.log(nameField);
+          }
+        }
       };
 
       function seterror(id, error) {}
-      function validateForm() {
-        var returnval = true;
-        // perform validation and if validation fails , set the value of returnval to false
-        var name = document.forms["myForm"]["fname"].value;
-        console.log(name);
-        return returnval;
-      }
     </script>
   </body>
 </html>
