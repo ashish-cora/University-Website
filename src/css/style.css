@@ -135,6 +135,7 @@ nav .fa {
   margin: auto;
   text-align: center;
   padding-top: 100px;
+  cursor: pointer;
 }
 h1 {
   font-size: 35px;
@@ -481,4 +482,8 @@ form p a {
   display: flex;
   color: #3c00a0;
   cursor: pointer;
+}
+
+.selectcourse {
+  background-color: rgb(220, 80, 80);
 }

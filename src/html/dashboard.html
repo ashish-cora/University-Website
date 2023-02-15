@@ -51,7 +51,7 @@
       </p>
 
       <div class="row">
-        <div class="course-col">
+        <div class="course-col" id="selectIntermediate">
           <h3>Intermediate</h3>
           <p>
             Diep toch er vijf zelf valt nu dien. Ruwe deze hand gaat dit sap
@@ -60,7 +60,7 @@
             noodige. Verbouwd interest zoo mijnerts het parasiet.
           </p>
         </div>
-        <div class="course-col">
+        <div class="course-col" id="selectDegree">
           <h3>Degree</h3>
           <p>
             Diep toch er vijf zelf valt nu dien. Ruwe deze hand gaat dit sap
@@ -69,7 +69,7 @@
             noodige. Verbouwd interest zoo mijnerts het parasiet.
           </p>
         </div>
-        <div class="course-col">
+        <div class="course-col" id="selectPG">
           <h3>Post Graduation</h3>
           <p>
             Diep toch er vijf zelf valt nu dien. Ruwe deze hand gaat dit sap
@@ -91,19 +91,19 @@
 
       <div class="row">
         <div class="campus-col">
-          <img src="../assets/img/london.png" />
+          <img src="../../assets/img/london.png" />
           <div class="layer">
             <h3>LONDON</h3>
           </div>
         </div>
         <div class="campus-col">
-          <img src="../assets/img/newyork.png" />
+          <img src="../../assets/img/newyork.png" />
           <div class="layer">
             <h3>NEW YORK</h3>
           </div>
         </div>
         <div class="campus-col">
-          <img src="../assets/img/washington.png" />
+          <img src="../../assets/img/washington.png" />
           <div class="layer">
             <h3>WASHINGTON</h3>
           </div>
@@ -206,7 +206,7 @@
     </section>
 
     <!-- ....................................login page.................................... -->
-    <section class="loginPage">
+    <!-- <section class="loginPage">
       <div class="form-box">
         <h1 id="title">Sign Up</h1>
         <form class="form" id="login" name="myForm" method="post">
@@ -246,10 +246,12 @@
           </div>
         </form>
       </div>
-    </section>
+    </section> -->
 
     <!-- javascript for toggle menu -->
     <script>
+      const user = JSON.parse(localStorage.getItem("user"));
+      console.log(user);
       var navLinks = document.getElementById("navLinks");
       function showMenu() {
         navLinks.style.right = "0";
@@ -257,96 +259,103 @@
       function hideMenu() {
         navLinks.style.right = "-200px";
       }
-      let naamField = document.getElementById("naamField").value;
-      let signupBtn = document.getElementById("signupBtn");
-      let signinBtn = document.getElementById("signinBtn");
-      let title = document.getElementById("title");
-      let nameField = document.getElementById("nameField");
-      let selectedTab = "signup";
+      let iVar = document.getElementById("selectIntermediate");
+      let dVar = document.getElementById("selectDegree");
+      let pVar = document.getElementById("selectPG");
 
-      signinBtn.onclick = function (e) {
-        e.preventDefault();
-        if (selectedTab === "signup") {
-          selectedTab = "signin";
-          nameField.style.maxHeight = "0";
-          title.innerHTML = "Sign In";
-          signupBtn.classList.add("disable");
-          signinBtn.classList.remove("disable");
-        } else {
-          let emailField = document.getElementById("eemail").value;
-          let password = document.getElementById("eepass").value;
-          if (emailField.includes("@") && password.length > 0) {
-            const user = JSON.parse(localStorage.getItem("user"));
-            if (user.emailField === emailField && user.password === password) {
-              // localStorage.setItem(
-              //   "user",
-              //   JSON.stringify({ emailField, password })
-              // );
-              console.log(emailField, password);
-              window.alert("You are logged in!");
-
-              setTimeout(() => {
-                window.location.replace("/html/dashboard.html");
-              }, 750);
-            }
-          }
-        }
-      };
-      signupBtn.onclick = function (e) {
-        e.preventDefault();
-        if (selectedTab === "signin") {
-          selectedTab = "signup";
-          nameField.style.maxHeight = "60px";
-          title.innerHTML = "Sign Up";
-          signupBtn.classList.remove("disable");
-          signinBtn.classList.add("disable");
-        } else {
-          let naamField = document.getElementById("naamField").value;
-          let emailField = document.getElementById("eemail").value;
-          let password = document.getElementById("eepass").value;
-          if (
-            naamField.length > 0 &&
-            emailField.includes("@") &&
-            password.length > 0
-          ) {
-            localStorage.setItem(
-              "user",
-              JSON.stringify({ naamField, emailField, password })
-            );
-            localStorage.setItem("name", naamField);
-            console.log(naamField, emailField, password);
-            window.alert("you are signed up!");
-            setTimeout(() => {
-              window.location.replace("/html/dashboard.html");
-            }, 750);
-          }
-        }
+      iVar.onclick = function () {
+        localStorage.setItem("course", "intermediate");
+        document
+          .getElementById("selectIntermediate")
+          .classList.add("selectcourse");
+        document
+          .getElementById("selectDegree")
+          .classList.remove("selectcourse");
+        document.getElementById("selectPG").classList.remove("selectcourse");
       };
 
-      console.log(naamField);
+      dVar.onclick = function () {
+        localStorage.setItem("course", "degree");
+        document.getElementById("selectDegree").classList.add("selectcourse");
+        document
+          .getElementById("selectIntermediate")
+          .classList.remove("selectcourse");
+        document.getElementById("selectPG").classList.remove("selectcourse");
+      };
+      pVar.onclick = function () {
+        localStorage.setItem("course", "post graduate");
+        document
+          .getElementById("selectDegree")
+          .classList.remove("selectcourse");
+        document
+          .getElementById("selectIntermediate")
+          .classList.remove("selectcourse");
+        document.getElementById("selectPG").classList.add("selectcourse");
+      };
+      //   let naamField = document.getElementById("naamField").value;
+      //   let signupBtn = document.getElementById("signupBtn");
+      //   let signinBtn = document.getElementById("signinBtn");
+      //   let title = document.getElementById("title");
+      //   let nameField = document.getElementById("nameField");
+      //   let selectedTab = "signup";
+
+      //   signinBtn.onclick = function (e) {
+      //     e.preventDefault();
+      //     if (selectedTab === "signup") {
+      //       selectedTab = "signin";
+      //       nameField.style.maxHeight = "0";
+      //       title.innerHTML = "Sign In";
+      //       signupBtn.classList.add("disable");
+      //       signinBtn.classList.remove("disable");
+      //     } else {
+      //       let emailField = document.getElementById("eemail").value;
+      //       let password = document.getElementById("eepass").value;
+      //       if (emailField.includes("@") && password.length > 0) {
+      //         localStorage.setItem(
+      //           "user",
+      //           JSON.stringify({ emailField, password })
+      //         );
+      //         console.log(emailField, password);
+      //         window.alert("You are logged in!");
+      //         setTimeout(() => {
+      //           window.location.replace(
+      //             "file:///C:/Projects/LEARNING/second%20website/src/html/website.html"
+      //           );
+      //         }, 750);
+      //       }
+      //     }
+      //   };
+      //   signupBtn.onclick = function (e) {
+      //     e.preventDefault();
+      //     if (selectedTab === "signin") {
+      //       selectedTab = "signup";
+      //       nameField.style.maxHeight = "60px";
+      //       title.innerHTML = "Sign Up";
+      //       signupBtn.classList.remove("disable");
+      //       signinBtn.classList.add("disable");
+      //     } else {
+      //       let naamField = document.getElementById("naamField").value;
+      //       let emailField = document.getElementById("eemail").value;
+      //       let password = document.getElementById("eepass").value;
+      //       if (
+      //         naamField.length > 0 &&
+      //         emailField.includes("@") &&
+      //         password.length > 0
+      //       ) {
+      //         localStorage.setItem(
+      //           "user",
+      //           JSON.stringify({ naamField, emailField, password })
+      //         );
+      //         console.log(naamField, emailField, password);
+      //         window.alert("you are signed up!");
+      //         setTimeout(() => {
+      //           window.location.replace(
+      //             "file:///C:/Projects/LEARNING/second%20website/src/html/website.html"
+      //           );
+      //         }, 750);
+      //       }
+      //     }
+      //   };
     </script>
   </body>
 </html>
-
-<!-- const localStore = localStorage.setItem;
-
-localStorage.setItem = function(key, value) {
-  const event = new Event('localUpdated');
-        event.key = key; 
-        event.value = value; 
-  
-  document.dispatchEvent(event);
-  localStore.apply(this, arguments);
-};
-
-const localStoreHandler = function(e) {
-  console.log(`👉 localStorage.set('${e.key}', '${e.value}') updated`);
-};
-
-document.addEventListener("localUpdated", localStoreHandler, false);
-
-
-localStorage.setItem('username', 'amoos');
-
-// After 2 second
-setTimeout( ()=>  localStorage.setItem('username', 'rifat'), 2000) -->
